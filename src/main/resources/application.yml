@@ -7,8 +7,8 @@ spring:
   ai:
     azure:
       openai:
-        api-key: ${OPENAI_APP_KEY}
-        endpoint: ${OPENAI_ENDPOINT}
+        api-key: ${OPENAI_APP_KEY:test_key}
+        endpoint: ${OPENAI_ENDPOINT:http://your-end-point}
         chat:
           options:
             deployment-name: ${OPENAI_DEPLOYMENT_NAME:gpt-4o-2}
@@ -21,7 +21,7 @@ server:
 
 app:
   chat:
-    system-prompt: ${SYSTEM_PROMPT}
+    system-prompt: ${SYSTEM_PROMPT:dummy-value}
 
 lib-security:
   enabled: false

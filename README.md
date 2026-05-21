@@ -1,5 +1,9 @@
-##Validation Rules
+Business Rules
+
+#Name
 The name of chat request must follow these rules:
+
+##Validation Rules
 
 ###1 - Microservice
 a. Must start with the prefix ms-
@@ -14,3 +18,8 @@ c. Must end with the prefix -v and the version number with up to 3 digits is man
 ###3 - LIB
 a. Must start with the prefix lib-
 b. Must contain letters, numbers, or hyphens (-) with up to 80 characters and is mandatory. Cannot start with a hyphen or number.
+c. Could have a prefix -v and the version number with up to 3 digits.
+
+#UUID
+The uuid of chat request must follow these rules:
+a. must be a valid UUID format.

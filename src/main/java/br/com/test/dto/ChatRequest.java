@@ -6,7 +6,7 @@ public class ChatRequest {
 	
 	private String question;
 	
-	@Pattern(regexp = "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}", message = "Must be a valid uuid")
+	@Pattern(regexp = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-4[0-9a-fA-F]{3}-[89aAbB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$", message = "Must be a valid uuid")
 	private String uuid;
 	
 	@Pattern(regexp = "^(ms-|api-|lib-)([a-z]|-|\\d){1,80}(-v\\d{1,3})$", message = "Component name must follow ^(ms-|api-|lib-)([a-z]|-|\\d){1,80}(-v\\d{1,3})$. pattern")

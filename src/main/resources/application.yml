@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: ${APPLICATION_NAME:ms-chat-ai-v1-old}
+  output:
+    ansi:
+      enabled: ALWAYS
+  ai:
+    azure:
+      openai:
+        api-key: ${OPENAI_APP_KEY}
+        endpoint: ${OPENAI_ENDPOINT}
+        chat:
+          options:
+            deployment-name: ${OPENAI_DEPLOYMENT_NAME:gpt-4o-2}
+            temperature: ${OPENAI_TEMPERATURE:0.1}
+
+server:
+  port: 8080
+  servlet:
+    context-path: "/${APPLICATION_PREFIX:chat-ai/v1}"
+
+app:
+  chat:
+    system-prompt: ${SYSTEM_PROMPT}
+
+lib-security:
+  enabled: false
+  white-list:
+    - path: "/**"
+      methods: "all"
+
+##HEALTHCHECK
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      group:
+        liveness:
+          include: livenessState,mcpClientLivenessIndicator
+  health:
+    livenessState:
+      enabled: true
+    readinessState:
+      enabled: true
